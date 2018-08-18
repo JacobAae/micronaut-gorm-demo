@@ -13,3 +13,8 @@ Shows 3 users
  ./gradlew test
 
 Fails with `No GORM implementations configured. Ensure GORM has been initialized correctly`
+
+== Credits
+
+* Workshop by Álvaro Sánchez-Mariscal: https://github.com/alvarosanchez/micronaut-workshop[]
+* Micronaut framework: https://micronaut.io[]
