@@ -2,6 +2,8 @@ package net.grydeske.micronaut.controllers
 
 import grails.gorm.transactions.Transactional
 import io.micronaut.context.ApplicationContext
+import io.micronaut.core.type.Argument
+import io.micronaut.http.HttpRequest
 import io.micronaut.http.client.RxHttpClient
 import io.micronaut.runtime.server.EmbeddedServer
 import net.grydeske.micronaut.domains.User
@@ -34,18 +36,29 @@ class UserControllerSpec extends Specification {
 
     void "test list"() {
         when:
-        List<User> users = client.exchange('/', User)
+        HttpRequest request = HttpRequest.GET("/")
+        List<User> users = client.toBlocking().retrieve(request, Argument.of(List, User))
 
         then:
         users
+        users.size() == 2
     }
 
     void "test single user"() {
         when:
-        User user = client.exchange("/${id}", User)
+        User user = client.toBlocking().exchange("/${id}", User).body()
 
         then:
         user
+    }
+
+    void "test static user"() {
+        when:
+        User user = client.toBlocking().exchange("/user/static", User).body()
+
+        then:
+        user
+        user.firstname
     }
 
 }

@@ -19,8 +19,19 @@ class UserController {
         userService.list()
     }
 
+    @Get("/user/static")
+    User showStatic() {
+        new User(
+                firstname: 'Gaius',
+                lastname: 'Baltar',
+                email: 'gaius@baltar.space'
+        )
+    }
+
     @Get("/{id}")
     User show(Long id) {
         userService.find(id)
     }
+
+
 }
