@@ -14,6 +14,12 @@ Shows 3 users
 
 Fails with `No GORM implementations configured. Ensure GORM has been initialized correctly`
 
+
+== Solution Branch
+
+On the solution branch, there is a solution, but it seems clumsy. Creating a class which implements
+`ApplicationEventListener<ServerStartupEvent>` that creates a HibernateDatastore if the environment is TEST.
+
 == Credits
 
 * Workshop by Álvaro Sánchez-Mariscal: https://github.com/alvarosanchez/micronaut-workshop[]
