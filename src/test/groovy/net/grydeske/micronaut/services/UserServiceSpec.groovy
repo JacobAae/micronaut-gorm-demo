@@ -4,6 +4,7 @@ import grails.gorm.transactions.Rollback
 import io.micronaut.context.ApplicationContext
 import io.micronaut.runtime.server.EmbeddedServer
 import net.grydeske.micronaut.domains.User
+import org.grails.orm.hibernate.HibernateDatastore
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
@@ -14,7 +15,15 @@ class UserServiceSpec extends Specification {
     @Shared @AutoCleanup EmbeddedServer embeddedServer = ApplicationContext.run(EmbeddedServer)
     @Shared UserService service = embeddedServer.applicationContext.getBean(UserService)
 
-
+/*
+    void setupSpec() {
+        Map configuration = [
+                'hibernate.hbm2ddl.auto':'create-drop',
+                'dataSource.url':'jdbc:h2:mem:myDB'
+        ]
+        HibernateDatastore datastore = new HibernateDatastore( configuration, User)
+    }
+*/
 
     void "service"() {
         setup:
