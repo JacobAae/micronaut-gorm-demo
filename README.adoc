@@ -1,0 +1,15 @@
+= Micronaut Gorm Demo
+
+Experiments to get Gorm working in tests
+
+== Running the application
+
+ ./gradlew run
+
+Shows 3 users
+
+== Testing the application
+
+ ./gradlew test
+
+Fails with `No GORM implementations configured. Ensure GORM has been initialized correctly`
