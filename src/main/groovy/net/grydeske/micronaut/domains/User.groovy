@@ -21,4 +21,8 @@ class User implements GormEntity<User> {
         "$firstname $lastname $email"
     }
 
+    static mapping = {
+        table 'myuser'
+    }
+
 }

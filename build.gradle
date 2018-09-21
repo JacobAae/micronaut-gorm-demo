@@ -40,6 +40,12 @@ dependencies {
     compileOnly "io.micronaut:inject-groovy"
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime "com.h2database:h2:1.4.196"
+    runtime "org.postgresql:postgresql:42.1.4"
+
+    testCompile 'org.testcontainers:testcontainers:1.9.0-rc2'
+    testCompile 'org.testcontainers:spock:1.9.0-rc2'
+    testCompile 'org.testcontainers:postgresql:1.8.3'
+
     runtime "org.apache.tomcat:tomcat-jdbc:8.0.44"
     testCompile("org.spockframework:spock-core:1.1-groovy-2.4") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"

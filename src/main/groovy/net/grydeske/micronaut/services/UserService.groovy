@@ -19,7 +19,7 @@ class UserService {
                 lastname: lastname,
                 email: email
         )
-        user.save()
+        user.save( flush: true )
 
         user
     }

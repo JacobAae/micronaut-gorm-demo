@@ -1,6 +1,6 @@
 = Micronaut Gorm Demo
 
-Experiments to get Gorm working in tests
+Experiments to get Gorm working in tests with Testcontainers
 
 == Running the application
 
@@ -12,10 +12,11 @@ Shows 3 users
 
  ./gradlew test
 
-Fails with `No GORM implementations configured. Ensure GORM has been initialized correctly`
+The test is using Testcontainers, where part of the configuration is in the test itself (jdbc url etc.)
+and part is in the `application-test.yml` file.
 
 
-== Solution Branch
+== Solution Branch - Don't do it like that
 
 On the solution branch, there is a solution, but it seems clumsy. Creating a class which implements
 `ApplicationEventListener<ServerStartupEvent>` that creates a HibernateDatastore if the environment is TEST.
@@ -24,3 +25,4 @@ On the solution branch, there is a solution, but it seems clumsy. Creating a cla
 
 * Workshop by Álvaro Sánchez-Mariscal: https://github.com/alvarosanchez/micronaut-workshop[]
 * Micronaut framework: https://micronaut.io[]
+* Thanks to James Kleeh on the Gitter Channel for tips on configuration
